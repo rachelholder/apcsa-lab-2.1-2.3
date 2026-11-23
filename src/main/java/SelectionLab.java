@@ -46,7 +46,7 @@ public class SelectionLab
     public static boolean isChild(int age)
     {
         // TODO Part 1: return a Boolean expression that is true for 12 and under
-        return false;
+        return age <= 12;
     }
 
     // ---------------------------------------------------------------
@@ -68,7 +68,7 @@ public class SelectionLab
     public static boolean isMatinee(int hour)
     {
         // TODO Part 2: return a Boolean expression that is true before hour 17
-        return false;
+        return hour < 17;
     }
 
     // ---------------------------------------------------------------
@@ -100,7 +100,8 @@ public class SelectionLab
     public static boolean wants3D(String choice)
     {
         // TODO Part 3: compare the characters of choice with "y"
-        return false;
+        return 
+        choice.equals("y");
     }
 
     // ---------------------------------------------------------------
@@ -136,7 +137,10 @@ public class SelectionLab
     public static int startingPrice(int hour)
     {
         // TODO Part 4: use if-else to return 900 or 1300
-        return 0;
+        if (hour < 17)
+            return 900;
+        else
+            return 1300;
     }
 
     // ---------------------------------------------------------------
@@ -174,7 +178,10 @@ public class SelectionLab
     public static int addSurcharge(int cents, boolean wants3D)
     {
         // TODO Part 5: add 350 only when wants3D is true, then return the price
-        return 0;
+        if (wants3D)
+            cents += 350;
+        return(cents);
+
     }
 
     // ---------------------------------------------------------------
@@ -210,8 +217,19 @@ public class SelectionLab
     public static int ticketCents(int age, int hour, boolean wants3D)
     {
         // TODO Part 6: steps 3, 4 and 5, in that order
-        return 0;
-    }
+        if (hour < 17)
+            ticketCents = 900;
+        else 
+            ticketCents = 1300;
+        if (age <= 12)
+            ticketCents -= 300;
+        if (age>=65)
+            ticketCents -= 400;
+        if (wants3D)
+            ticketCents += 350;
+        return(ticketCents);
+
+}
 
     // ---------------------------------------------------------------
     // PART 7: a one-way if fixes the zero that would go missing
@@ -244,7 +262,11 @@ public class SelectionLab
     public static String formatPrice(int cents)
     {
         // TODO Part 7: build the price String, adding a "0" only when needed
-        return "";
+        String price = "$" + cents / 100 + ".";
+        if (cents % 100 < 10)
+            price += "0";
+        price += cents % 100;
+        return(price);
     }
 
     // ---------------------------------------------------------------
