@@ -217,6 +217,7 @@ public class SelectionLab
     public static int ticketCents(int age, int hour, boolean wants3D)
     {
         // TODO Part 6: steps 3, 4 and 5, in that order
+        int ticketCents;
         if (hour < 17)
             ticketCents = 900;
         else 
